@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — DUBliss Research Consultancy & Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --navy:#0A2342; --navy-2:#112B4A;
+    --gold:#D4A017; --gold-2:#B8860B;
+    --white:#ffffff; --muted:#cbd5e0;
+    --glass: rgba(255,255,255,0.04);
+    --ease: cubic-bezier(.2,.9,.3,1);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--navy);background:linear-gradient(180deg,var(--navy),var(--navy-2));-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{width:92%;max-width:1200px;margin:0 auto;padding:0 12px}
+
+/* header (glass style) */
+header{position:fixed;top:0;left:0;right:0;z-index:1200;padding:12px 0;backdrop-filter: blur(8px);background:linear-gradient(180deg, rgba(10,35,66,0.55), rgba(10,35,66,0.35));transition:all .35s var(--ease)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-row{display:flex;gap:12px;align-items:center}
+.logo-row img{width:56px;height:56px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 12px 30px rgba(0,0,0,0.45)}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-main{font-weight:800;color:var(--gold);font-size:16px}
+.logo-sub{font-size:11px;color:var(--muted)}
+nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+nav a{font-weight:600;color:rgba(255,255,255,0.95);padding:8px 10px;border-radius:8px;transition:color .22s, transform .22s}
+nav a:hover{color:var(--gold);transform:translateY(-2px)}
+.mobile-toggle{display:none;background:none;border:0;color:var(--white);font-size:22px;cursor:pointer}
+
+/* hero */
+.hero{padding-top:86px; display:flex; align-items:center; justify-content:center; min-height:30vh; text-align:center; color:var(--white)}
+.hero-inner{max-width:980px;padding:36px}
+.hero h1{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.02;margin-bottom:8px;color:var(--gold);font-weight:800}
+.hero p{color:var(--muted);max-width:860px;margin:0 auto 12px}
+
+/* contact area */
+.section{padding:64px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+@media (max-width:980px){ .contact-grid{grid-template-columns:1fr} .mobile-toggle{display:block} nav ul{display:none} }
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px; border-radius:12px; box-shadow:0 14px 40px rgba(0,0,0,0.35); color:var(--muted); border:1px solid rgba(255,255,255,0.03)}
+.contact-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.icon{width:44px;height:44;border-radius:8px;background:rgba(212,160,23,0.08);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+
+.form-control{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-bottom:10px}
+.submit{background:linear-gradient(90deg,var(--gold),var(--gold-2));border:0;padding:10px 14px;border-radius:8px;color:var(--navy);font-weight:800;cursor:pointer}
+
+/* small utilities */
+.kicker{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.small{font-size:0.95rem;color:var(--muted)}
+
+/* footer */
+footer{background:linear-gradient(180deg,var(--navy-2),#081328);color:var(--muted);padding:48px 0;margin-top:26px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1200px;margin:0 auto;padding:0 12px}
+.footer-grid h4{color:var(--gold);margin-bottom:8px}
+.copy{margin-top:18px;text-align:center;color:rgba(255,255,255,0.6)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner" role="banner">
+    <a href="homm.html" class="logo-row" aria-label="DUBliss home">
+      <img src="file:///C:\Users\Students\Documents\DuBlissWebsite\Images\DUBlisslogo.jpg" alt="DUBliss logo" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <div class="logo-main">DUBliss</div>
+        <div class="logo-sub">Research Consultancy & Academy</div>
+      </div>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-controls="main-nav" aria-expanded="false">☰</button>
+      <ul id="main-nav">
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Consultancy.html">Consultancy</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="kicker">Partner with us</div>
+    <h1>Contact DUBliss</h1>
+    <p>We partner with governments, NGOs, funders and academic teams to deliver research, training and M&E solutions that drive measurable impact across Africa.</p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div>
+        <div class="card">
+          <h3 style="color:var(--gold);margin-top:0">Get in touch</h3>
+          <p class="small">We’d love to hear from you — whether it’s a project enquiry, training request, or partnership idea.</p>
+
+          <div style="margin-top:14px">
+            <div class="contact-item">
+              <div class="icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <div style="color:var(--muted);font-weight:700">Phone</div>
+                <div class="small">+268 7810 7727 / +268 7915 6003</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div style="color:var(--muted);font-weight:700">Email</div>
+                <div class="small"> dubliss.r.consulting@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div style="color:var(--muted);font-weight:700">Head Office</div>
+                <div class="small">Mbabane, Eswatini</div>
+              </div>
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.04);margin:16px 0">
+
+          <h4 style="color:var(--gold);margin-bottom:6px">Partnership types</h4>
+          <ul style="color:var(--muted);line-height:1.6">
+            <li>Research design & protocol development</li>
+            <li>Monitoring & Evaluation systems and evaluations</li>
+            <li>Training & capacity strengthening</li>
+            <li>Data analysis, visualization & policy briefs</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h4 style="color:var(--gold);margin-top:0">Send us a message</h4>
+          <form id="contactForm">
+            <label class="small">Full name</label>
+            <input class="form-control" type="text" id="name" required>
+
+            <label class="small">Email</label>
+            <input class="form-control" type="email" id="email" required>
+
+            <label class="small">Phone</label>
+            <input class="form-control" type="tel" id="phone">
+
+            <label class="small">Organization</label>
+            <input class="form-control" type="text" id="org">
+
+            <label class="small">Message</label>
+            <textarea class="form-control" id="message" rows="6" required></textarea>
+
+            <button type="submit" class="submit">Send message</button>
+          </form>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>DUBliss Research</h4>
+      <p class="small">Evidence-driven research and capacity strengthening across Africa.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <a href="homm.html">Home</a><br>
+      <a href="Aboutuss.html">About</a><br>
+      <a href="Consultancy.html">Consultancy</a><br>
+      <a href="student-portal.html">Student Portal</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <div class="small">+268 7810 7727 / +268 7915 6003</div>
+      <div class="small">dubliss.r.consulting@gmail.com</div>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <div class="small">Social links</div>
+    </div>
+  </div>
+  <div class="copy">
+    <div style="text-align:center;color:rgba(255,255,255,0.6)">&copy; <span id="yr2"></span> DUBliss Research Consultancy & Academy — All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr2').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  document.querySelector('.mobile-toggle').addEventListener('click', function(){
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+
+  // contact form (demo)
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    // Basic demo confirmation — replace with actual submission integration
+    alert('Thanks — your message has been recorded. We will contact you shortly.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>

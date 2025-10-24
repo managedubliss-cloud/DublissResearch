@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About DUBliss — Research Excellence in Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --navy:#0A2342;
+    --navy-2:#112B4A;
+    --gold:#D4A017;
+    --gold-2:#B8860B;
+    --white:#FFFFFF;
+    --muted:#CAD3DF;
+    --muted-dark:#9AA8C2;
+    --glass: rgba(255,255,255,0.03);
+    --ease: cubic-bezier(.2,.9,.3,1);
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--white);background:linear-gradient(180deg,var(--navy),var(--navy-2));-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{width:92%;max-width:1200px;margin:0 auto}
+
+/* ===== Header ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:1200;padding:12px 0;backdrop-filter: blur(6px);transition:all .35s var(--ease)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo-row{display:flex;align-items:center;gap:12px}
+.logo-img{width:56px;height:56px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 12px 30px rgba(0,0,0,0.45);transition:transform .32s}
+.logo-img:hover{transform:scale(1.06) rotate(-4deg)}
+.logo-text{display:flex;flex-direction:column}
+.logo-main{font-weight:800;color:var(--gold);font-size:18px}
+.logo-sub{font-size:11px;color:var(--muted)}
+nav ul{display:flex;gap:20px;align-items:center;margin:0;padding:0;list-style:none}
+nav a{color:rgba(255,255,255,0.92);font-weight:600;padding:8px 6px;border-radius:8px;transition:color .22s,transform .22s}
+nav a:hover{color:var(--gold);transform:translateY(-2px)}
+.mobile-toggle{display:none;background:none;border:0;color:var(--white);font-size:22px;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;padding-top:76px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg, rgba(10,35,66,0.7), rgba(17,43,74,0.6)), url('https://images.unsplash.com/photo-1501696463608-0b2f3f0e6f3b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;filter:contrast(.95) brightness(.55);z-index:0}
+.hero-glow{position:absolute;right:-10%;top:10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(212,160,23,0.12), transparent 40%);filter:blur(40px);z-index:1;pointer-events:none}
+.canvas-wrap{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:20px;max-width:1100px}
+.kicker{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.6rem,4vw,3.2rem);line-height:1.02;margin:0 0 14px;color:var(--gold);font-weight:800}
+.hero p{max-width:880px;margin:0 auto 20px;color:var(--muted);font-size:1.03rem;line-height:1.6}
+.hero-cta{display:flex;gap:12px;justify-content:center;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;font-weight:700;cursor:pointer;border:0;transition:transform .25s var(--ease),box-shadow .25s}
+.btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:var(--navy);box-shadow:0 10px 30px rgba(212,160,23,0.12)}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.06);color:var(--white)}
+
+/* subtle badges under hero */
+.hero-badges{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);display:flex;gap:8px;align-items:center}
+
+/* ===== Sections ===== */
+.section{padding:84px 0;position:relative}
+.section .title{display:block;text-align:center;margin-bottom:22px}
+.section .title h2{font-size:1.8rem;color:var(--gold);margin-bottom:6px}
+.section .title p{color:var(--muted);max-width:820px;margin:0 auto}
+
+/* ABOUT area */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:22px;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.03)}
+.about-text h3{color:var(--gold);margin-bottom:10px}
+.about-text p{color:var(--muted);line-height:1.6;margin-bottom:12px}
+
+/* visual panel */
+.about-visual{height:420px;border-radius:12px;overflow:hidden;position:relative}
+.map-overlay{position:absolute;inset:0;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox=\"0 0 100 100\"><path d=\"M50,10 C60,15 65,25 70,35 C75,45 80,55 85,65 C90,75 85,85 75,90 C65,95 55,90 45,85 C35,80 25,75 15,70 C5,65 10,55 15,45 C20,35 25,25 30,15 C35,5 40,5 50,10 Z\" fill=\"%23D4A017\" opacity=\"0.06\"/></svg>');background-repeat:no-repeat;background-position:center;background-size:70%}
+.about-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.05) contrast(.95);}
+
+/* MISSION / VISION cards */
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mv-card{padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-left:6px solid var(--gold);box-shadow:0 12px 30px rgba(0,0,0,0.28)}
+.mv-icon{width:64px;height:64px;border-radius:12px;background:rgba(212,160,23,0.12);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:22px;margin-bottom:12px}
+
+/* values */
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.value-card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 10px 28px rgba(0,0,0,0.28);text-align:center}
+.value-icon{width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,0.12);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:22px;margin:0 auto 12px}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.team-card{border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 12px 30px rgba(0,0,0,0.28)}
+.team-img{height:190px;background:linear-gradient(135deg,rgba(255,255,255,0.02),transparent);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:56px}
+.team-content{padding:14px}
+.team-content h4{margin:6px 0;color:var(--gold)}
+.team-content p{color:var(--muted);font-size:.95rem}
+
+/* Stats */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:10px}
+.stat-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;text-align:center}
+.stat-number{font-size:1.8rem;color:var(--gold);font-weight:800}
+.stat-label{color:var(--muted)}
+
+/* CTA */
+.cta{padding:42px;border-radius:12px;background:linear-gradient(90deg, rgba(212,160,23,0.08), rgba(255,255,255,0.02));text-align:center;margin-top:18px}
+.cta h3{color:var(--gold);margin-bottom:8px}
+.cta p{color:var(--muted);max-width:800px;margin:0 auto 12px}
+
+/* Footer */
+footer{margin-top:30px;padding:36px 0;background:linear-gradient(180deg,var(--navy-2),#081328);color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+.footer-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;align-items:start}
+.footer-columns h4{color:var(--gold);margin-bottom:8px}
+.footer-columns a{display:block;color:var(--muted);margin-bottom:8px}
+.copy{margin-top:18px;text-align:center;color:rgba(255,255,255,0.6)}
+
+/* modal estimator */
+.modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(1,2,5,0.6);z-index:2200;padding:18px}
+.modal-backdrop.active{display:flex}
+.modal{background:linear-gradient(180deg,var(--navy-2),var(--navy));padding:18px;border-radius:12px;max-width:720px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,0.6)}
+.input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:var(--muted);margin-bottom:10px}
+
+/* small helpers */
+.kicker{text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-size:12px}
+.center{display:flex;justify-content:center;align-items:center}
+
+/* reveal animation helper */
+.reveal{opacity:0;transform:translateY(24px);transition:all .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* responsiveness */
+@media(max-width:980px){
+  nav ul{display:none}
+  .mobile-toggle{display:block}
+  .about-grid{grid-template-columns:1fr}
+  .mv-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .hero p{font-size:0.98rem}
+  .team-img{font-size:44px}
+}
+
+ /* little progress bar */
+  .progress-wrap { position: fixed; right: 18px; bottom: 18px; background: rgba(0,0,0,0.35); padding:8px; border-radius:999px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .progress { width:120px; height:6px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; }
+  .progress > i { display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); width:0%; transition: width .25s linear; }
+  
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner" role="banner">
+    <a href="Index.html" class="logo-row" aria-label="DUBliss home">
+      <!-- Local logo path: will render when opened on the same machine -->
+      <img class="logo-img" src="file:///C:\Users\Students\Documents\DuBlissWebsite\Images\DUBlisslogo.jpg" alt="DUBliss logo">
+      <div class="logo-text">
+        <div class="logo-main">DUBliss</div>
+        <div class="logo-sub">Research Consultancy & Academy</div>
+      </div>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-controls="main-nav" aria-expanded="false">☰</button>
+      <ul id="main-nav" role="menubar">
+        <li role="none"><a role="menuitem" href="Index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html" aria-current="page">About</a></li>
+        <li role="none"><a role="menuitem" href="Consultancy.html">Consultancy</a></li>
+        <li role="none"><a role="menuitem" href="Academy.html">Academy</a></li>
+        <li role="none"><a role="menuitem" href="resources.html">Resources</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home" aria-label="About DUBliss hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="canvas-wrap" aria-hidden="true"><canvas id="particles" style="width:100%;height:100%;"></canvas></div>
+
+  <div class="container hero-inner">
+    <div class="kicker">Africa • Research • Impact</div>
+    <h1>About <span>DUBliss</span></h1>
+    <p>At DUBliss we merge academic rigor with operational expertise to translate ideas into measurable, evidence-driven impact. Our multidisciplinary team — trained at leading African institutions — blends methodological excellence with practical delivery to support research, monitoring & evaluation, and capacity development across the continent.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#about" title="Learn more">Explore Who We Are</a>
+      <button class="btn btn-outline" id="openEstimatorBtn" title="Smart estimator">Smart Project Estimator</button>
+    </div>
+
+    <div class="hero-badges" aria-hidden="true">
+      <div class="badge"><i class="fas fa-graduation-cap" style="color:var(--gold)"></i> PhD & Masters team</div>
+      <div class="badge"><i class="fas fa-globe-africa" style="color:var(--gold)"></i> Africa-first</div>
+      <div class="badge"><i class="fas fa-chart-line" style="color:var(--gold)"></i> Evidence-driven</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="title">
+      <h2>Who we are</h2>
+      <p>Integrating scientific excellence with African innovation — we drive research that matters.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="card about-text reveal" id="aboutCard">
+        <h3>Premier African Research Hub</h3>
+        <p>DUBliss Research Consultancy & Academy brings together scientific consultancy, monitoring & evaluation, and professional training under one purpose: to strengthen Africa’s research systems and ensure evidence informs decisions. Our team includes PhD and master-level researchers trained at UCT, Wits and UKZN, with extensive experience in public health, social research, data science and program evaluation.</p>
+
+        <p>We prioritise contextually relevant methods, ethical research practice, and capacity strengthening — partnering with governments, universities, NGOs and funders to design, implement and translate research into policy and practice.</p>
+
+        <p>Typical engagements include: protocol & ethics development, sample size & sampling strategies, large-scale surveys, mixed-methods evaluations, implementation science, economic evaluations, and AI-enabled analyses for policy decisions.</p>
+      </div>
+
+      <div class="card about-visual reveal" id="visualCard" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1526378724065-4003f31c0b6b?auto=format&fit=crop&w=1400&q=80" alt="Research team collaborating" style="width:100%;height:100%;object-fit:cover;display:block">
+        <div class="map-overlay" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="section" id="mission">
+  <div class="container">
+    <div class="title">
+      <h2>Vision & Mission</h2>
+      <p>Guiding principles that shape every project and partnership.</p>
+    </div>
+
+    <div class="mv-grid reveal">
+      <div class="mv-card">
+        <div class="mv-icon"><i class="fas fa-eye"></i></div>
+        <h3>Vision</h3>
+        <p>To be Africa's most trusted name in research consultancy, monitoring & evaluation and scientific capacity building — where African research leads global conversations and drives sustainable development.</p>
+      </div>
+
+      <div class="mv-card">
+        <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Mission</h3>
+        <p>To elevate the quality, integrity and visibility of African research through rigorous consultancy, bespoke training, and innovative data-driven solutions — building local capacity for long-term impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section" id="values">
+  <div class="container">
+    <div class="title">
+      <h2>Our Core Values</h2>
+      <p>Principles that guide how we work and how we deliver impact.</p>
+    </div>
+
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Integrity</h4>
+        <p>Transparent, ethical and accountable research practice is central to our work — we protect participant rights and data integrity.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+        <h4>Precision</h4>
+        <p>We deliver rigorous, robust and reproducible methods so findings are accurate and defensible.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+        <h4>Collaboration</h4>
+        <p>We co-design with local partners and stakeholders to ensure relevance, feasibility and sustainability.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+        <h4>Innovation</h4>
+        <p>Practical use of AI, automation and visualization to speed insights without compromising rigor.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+        <h4>Impact</h4>
+        <p>Every project is purpose-driven — we measure and report outcomes that matter for policy and practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM / PARTNERS -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="title">
+      <h2>Academic Heritage & Partners</h2>
+      <p>We draw expertise from leading African institutions and trusted partners.</p>
+    </div>
+
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-img"><i class="fas fa-university"></i></div>
+        <div class="team-content">
+          <h4>University of Cape Town</h4>
+          <p class="university">Rigorous methods & global perspectives</p>
+          <p>UCT-trained researchers contribute world-class methodological expertise and publication experience to our projects.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img"><i class="fas fa-graduation-cap"></i></div>
+        <div class="team-content">
+          <h4>University of the Witwatersrand</h4>
+          <p class="university">Contextually-driven public health research</p>
+          <p>Wits alumni provide deep knowledge in health systems, epidemiology and applied research grounded in African realities.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img"><i class="fas fa-flask"></i></div>
+        <div class="team-content">
+          <h4>University of KwaZulu-Natal</h4>
+          <p class="university">Community-engaged and operational research</p>
+          <p>UKZN-trained team members strengthen our ability to design community-focused and implementation-ready studies.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="partners center" style="margin-top:18px;color:var(--muted-dark);gap:14px">
+      <div><strong>Partner networks:</strong></div>
+      <div>Ministries • NGOs • Donors • Academic partners • Private sector</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" id="impact">
+  <div class="container">
+    <div class="title">
+      <h2>Impact at a glance</h2>
+      <p>Numbers that show our reach and the practical outcomes of our work.</p>
+    </div>
+
+    <div class="stats-grid reveal">
+      <div class="stat-card">
+        <div class="stat-number" data-target="24">0</div>
+        <div class="stat-label">Research projects supported</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-label">Professionals trained</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">Countries engaged</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number" data-target="98">0</div>
+        <div class="stat-label">Client satisfaction (%)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta reveal">
+      <h3>Partner with DUBliss</h3>
+      <p>Whether you need a scoping consultation, a full evaluation, or training for your team, we tailor our services to meet your objectives and context.</p>
+      <div style="margin-top:12px" class="center">
+        <a href="contact.html" class="btn btn-primary" style="margin-right:10px">Get in touch</a>
+        <button class="btn btn-outline" id="openEstimatorBtn2">Try estimator</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <h4>DUBliss Research</h4>
+        <p style="color:var(--muted)">Africa's premier hub for research excellence, innovation and impact.</p>
+      </div>
+
+      <div>
+        <h4>Quick links</h4>
+        <a href="Index.html">Home</a>
+        <a href="Consultancy.html">Consultancy</a>
+        <a href="Academy.html">Academy</a>
+        <a href="resources.html">Resources</a>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <a href="Consultancy.html">Research Design</a>
+        <a href="Consultancy.html">Data Analysis</a>
+        <a href="Consultancy.html">Monitoring & Evaluation</a>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p style="color:var(--muted)">Mbabane, Eswatini</p>
+        <p style="color:var(--muted)">dubliss.r.consulting@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="copy">
+      <p>&copy; 2025 DUBliss Research Consultancy & Academy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal estimator -->
+<div class="modal-backdrop" id="estModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal" role="document">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 style="color:var(--gold);margin:0">Smart Project Estimator</h3>
+      <button id="closeEst" aria-label="Close" style="background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
+    </div>
+
+    <p style="color:var(--muted);margin-top:6px">Enter a short project description (2–4 sentences). The estimator suggests a likely project type, confidence, and a starting budget estimate for planning discussions.</p>
+
+    <div style="margin-top:10px">
+      <input id="estName" class="input" placeholder="Your name (optional)" />
+      <input id="estEmail" class="input" placeholder="Email (optional)" type="email" />
+      <textarea id="estDesc" rows="5" class="input" placeholder="Describe the project: topic, population, expected timeline and goals..." required></textarea>
+
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <select id="estUrg" class="input" style="flex:1">
+          <option value="normal">Normal timeline</option>
+          <option value="fast">Fast (+25% cost)</option>
+          <option value="slow">Flexible (-10% cost)</option>
+        </select>
+        <select id="estRegion" class="input" style="flex:1">
+          <option value="sadc">SADC</option>
+          <option value="east">East Africa</option>
+          <option value="west">West Africa</option>
+          <option value="pan">Pan-Africa</option>
+        </select>
+      </div>
+
+      <button id="runEst" class="btn btn-primary" style="margin-top:10px">Analyze & Estimate</button>
+
+      <div id="estOutput" style="display:none;margin-top:12px;background:var(--glass);padding:12px;border-radius:8px;color:var(--muted)">
+        <div id="type" style="font-weight:700;color:var(--gold)"></div>
+        <div id="conf" style="margin-top:6px"></div>
+        <div id="budget" style="margin-top:6px;font-weight:800"></div>
+        <div id="rationale" style="margin-top:8px;color:var(--muted)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== Mobile nav toggle ===== */
+const mobileToggle = document.querySelector('.mobile-toggle');
+const mainNav = document.getElementById('main-nav');
+mobileToggle && mobileToggle.addEventListener('click', ()=>{
+  const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+  mobileToggle.setAttribute('aria-expanded', !expanded);
+  if(mainNav.style.display === 'flex') mainNav.style.display = 'none';
+  else mainNav.style.display = 'flex';
+});
+
+/* ===== Particle canvas for hero (subtle) ===== */
+(function(){
+  const canvas = document.getElementById('particles'), ctx = canvas && canvas.getContext && canvas.getContext('2d');
+  if(!canvas || !ctx) return;
+  let w=canvas.width=innerWidth, h=canvas.height=innerHeight, t=0;
+  window.addEventListener('resize', ()=>{ w=canvas.width=innerWidth; h=canvas.height=innerHeight; init(); });
+  let parts=[];
+  function init(){
+    parts=[];
+    const count = Math.max(36, Math.round(w/30));
+    for(let i=0;i<count;i++){
+      parts.push({x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.6+0.6, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4, a:0.4+Math.random()*0.6});
+    }
+  }
+  init();
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    parts.forEach(p=>{
+      p.x += p.vx + Math.sin((t+p.x)/1200)*0.06;
+      p.y += p.vy + Math.cos((t+p.y)/1100)*0.06;
+      if(p.x < -10) p.x = w+10;
+      if(p.x > w+10) p.x = -10;
+      if(p.y < -10) p.y = h+10;
+      if(p.y > h+10) p.y = -10;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(212,160,23,${p.a*0.9})`;
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    t++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ===== Reveal on scroll ===== */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(ent => { if(ent.isIntersecting){ ent.target.classList.add('visible'); io.unobserve(ent.target); }});
+},{threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+
+/* ===== Animate stats when in view ===== */
+(function(){
+  const statEls = document.querySelectorAll('.stat-number');
+  if(!statEls.length) return;
+  const sObserver = new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      statEls.forEach(el=>{
+        const target = +el.getAttribute('data-target') || 0;
+        let i=0; const step = Math.max(1, Math.round(target/80));
+        const timer = setInterval(()=>{
+          i += step;
+          if(i >= target){ el.textContent = target; clearInterval(timer); } else el.textContent = i;
+        }, 18);
+      });
+      sObserver.disconnect();
+    }
+  }, {threshold:0.35});
+  sObserver.observe(document.querySelector('#impact'));
+})();
+
+/* ===== Smooth anchors accounting for fixed header ===== */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', (e)=>{
+    const href = a.getAttribute('href');
+    if(!href || href === '#') return;
+    const target = document.querySelector(href);
+    if(target){
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - 74;
+      window.scrollTo({top:y, behavior:'smooth'});
+      if(window.innerWidth < 980) mainNav.style.display = 'none';
+    }
+  });
+});
+
+/* ===== Header transparency on scroll ===== */
+window.addEventListener('scroll', ()=>{
+  const header = document.querySelector('header');
+  if(window.scrollY > 48){ header.style.background = 'linear-gradient(180deg, rgba(2,8,23,0.88), rgba(2,8,23,0.88))'; header.style.boxShadow='0 10px 30px rgba(0,0,0,0.4)'; }
+  else { header.style.background = 'transparent'; header.style.boxShadow='none'; }
+});
+
+/* ===== Estimator modal logic (improved keyword heuristic) ===== */
+const estModal = document.getElementById('estModal');
+const openBtns = [document.getElementById('openEstimatorBtn'), document.getElementById('openEstimatorBtn2')].filter(Boolean);
+const closeBtn = document.getElementById('closeEst');
+openBtns.forEach(b => b.addEventListener('click', ()=> { estModal.classList.add('active'); estModal.setAttribute('aria-hidden','false'); document.getElementById('estDesc').focus(); }));
+closeBtn && closeBtn.addEventListener('click', ()=> { estModal.classList.remove('active'); estModal.setAttribute('aria-hidden','true'); });
+
+function analyze(text){
+  text = (text||'').toLowerCase();
+  const keywords = {
+    survey: ['survey','questionnaire','sample','respondent','household'],
+    qualitative: ['interview','focus group','fgd','qualitative','in-depth'],
+    rct: ['randomi','rct','randomized','trial','control'],
+    review: ['systematic review','meta-analysis','scoping review','meta analysis'],
+    dashboard: ['dashboard','visualization','tableau','power bi','dashboarding','visual'],
+    ml: ['machine learning','model','predict','ml','random forest','xgboost','neural'],
+  };
+  const scores = {};
+  for(const k in keywords){ scores[k]=0; keywords[k].forEach(kw=>{ if(text.includes(kw)) scores[k]++; }); }
+  let top = Object.entries(scores).sort((a,b)=>b[1]-a[1])[0] || ['general',0];
+  let detected = top[0];
+  if(top[1] === 0) detected = 'general';
+  const total = Object.values(scores).reduce((s,v)=>s+v,0);
+  const confidence = total ? Math.round((top[1]/total)*100) : 50;
+  let complexity = 1.0;
+  if(['rct','ml'].includes(detected)) complexity = 1.5;
+  if(['qualitative','survey','dashboard'].includes(detected)) complexity = 1.1;
+  if(detected === 'review') complexity = 0.95;
+  return {detected,confidence,complexity};
+}
+
+function estimateBudget({complexity, months=3, urgency='normal', region='sadc'}){
+  const base = 1200;
+  const perMonth = 600;
+  let est = Math.round((base + perMonth*Math.max(1,months)) * complexity);
+  if(urgency==='fast') est = Math.round(est*1.25);
+  if(urgency==='slow') est = Math.round(est*0.9);
+  if(region==='pan') est = Math.round(est*1.12);
+  if(region==='west' || region==='east') est = Math.round(est*1.06);
+  return est;
+}
+
+document.getElementById('runEst').addEventListener('click', ()=>{
+  const desc = document.getElementById('estDesc').value.trim();
+  if(!desc || desc.length < 10){ alert('Please provide a short description (min 10 characters).'); return; }
+  const urgency = document.getElementById('estUrg').value;
+  const region = document.getElementById('estRegion').value;
+  const analysis = analyze(desc);
+  const budget = estimateBudget({complexity:analysis.complexity, months:3, urgency, region});
+  const labels = { survey:'Survey', qualitative:'Qualitative', rct:'Randomized Trial (RCT)', review:'Systematic Review', dashboard:'Dashboard / Visualization', ml:'AI / Machine Learning', general:'General Research' };
+  const label = labels[analysis.detected] || 'General Research';
+  document.getElementById('type').textContent = `Detected project type: ${label} — confidence ${analysis.confidence}%`;
+  document.getElementById('conf').textContent = `Complexity factor: ${analysis.complexity.toFixed(2)} • Suggested timeline: 3 months`;
+  document.getElementById('budget').textContent = `Estimated starting budget (USD): $${budget.toLocaleString()}`;
+  document.getElementById('rationale').textContent = 'Rationale: keyword-based detection + heuristic complexity multiplier. Use as planning guidance; we provide a detailed quote after scoping.';
+  document.getElementById('estOutput').style.display = 'block';
+});
+
+/* ===== Close modal on ESC ===== */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && estModal.classList.contains('active')){ estModal.classList.remove('active'); estModal.setAttribute('aria-hidden','true'); }
+});
+
+/* ===== Small accessibility focus helper ===== */
+document.body.addEventListener('keydown', (e)=> { if(e.key === 'Tab') document.body.classList.add('show-focus'); });
+
+</script>
+</body>
+</html>
